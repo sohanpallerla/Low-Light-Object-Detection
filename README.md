@@ -39,30 +39,7 @@ Object detection is a critical perception task for autonomous driving. Conventio
 - Tkinter GUI
 - gTTS voice alerts
 
-# 🏛️ System Architecture
 
-```text
-Input → Preprocessing → Augmentation → YOLOv3 → Object Detection → Voice Alert
-```
-
-Image:
-
-```html
-<p align="center">
-<img src="arch%20diagram.jpeg" width="900">
-</p>
-```
-
-# 🔄 Workflow
-
-```text
-Capture → Enhance → Detect → Draw Bounding Boxes → Display → Speak
-```
-
-```html
-<p align="center">
-<img src="systemworkflow.jpeg" width="900">
-</p>
 ```
 
 # 🛠 Tech Stack
@@ -130,21 +107,29 @@ Add screenshots for:
 - Webcam output
 - GUI
 
-# 🎯 PO–PSO Mapping
+## 🏛️ System Architecture
 
-```html
 <p align="center">
-<img src="po-pso%26sdg%20mapping.jpeg" width="850">
+  <img src="architecture.jpeg" width="1000">
 </p>
-```
 
-# 🌍 SDG Mapping
+## 🔄 System Workflow
 
-```html
 <p align="center">
-<img src="sdg%20mapping.jpeg" width="700">
+  <img src="systemworkflow.jpeg" width="900">
 </p>
-```
+
+## 🎯 PO–PSO Mapping
+
+<p align="center">
+  <img src="po-pso-sdg-mapping.jpeg" width="900">
+</p>
+
+## 🌍 SDG Mapping
+
+<p align="center">
+  <img src="sdg-mapping.jpeg" width="800">
+</p>
 
 # 🚀 Future Scope
 
