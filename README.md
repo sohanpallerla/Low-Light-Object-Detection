@@ -159,7 +159,6 @@ LinkedIn: https://www.linkedin.com/in/pallerla-sohan-ba79a8246
 
 - Vasavi College of Engineering
 - Department of Information Technology
-- Project Guide: Mr. G. Rajashekhar
 - COCO Dataset
 - ExDark Dataset
 - OpenCV
