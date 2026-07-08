@@ -164,6 +164,15 @@ LinkedIn: https://www.linkedin.com/in/pallerla-sohan-ba79a8246
 - OpenCV
 - YOLOv3
 
+# 🎥 Project Demonstration
+
+A complete demonstration of the project, including installation, execution, GUI workflow, object detection, and output results, is available in the video below.
+
+📺 **Project Demo Video**
+
+👉 **https://drive.google.com/file/d/1dFyvXSFV900baBxvVGtvcgAO2SxYXfdW/view?usp=drive_link**
+
+
 # 📜 License
 
 MIT License (recommended for GitHub).
