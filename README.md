@@ -1,463 +1,188 @@
+
 # 🌙 Low-Light Object Detection in Autonomous Vehicles using YOLOv3 and ExDark Dataset
 
+> **Bachelor of Engineering Final Year Project**  
+> Department of Information Technology, Vasavi College of Engineering (Autonomous), Hyderabad
+
+![Python](https://img.shields.io/badge/Python-3.x-blue?style=flat-square&logo=python)
+![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-green?style=flat-square&logo=opencv)
+![YOLOv3](https://img.shields.io/badge/YOLO-v3-red?style=flat-square)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-Deep%20Learning-orange?style=flat-square&logo=tensorflow)
+
+---
+
+# 📖 Abstract
+
+This project proposes a robust low-light object detection system for autonomous vehicles using YOLOv3 trained on COCO and ExDark datasets. It improves detection under poor illumination using preprocessing, augmentation and real-time inference. A Google Text-to-Speech based alert system announces detected objects to improve safety.
+
+---
+
+# 🚗 Overview
+
+Object detection is a critical perception task for autonomous driving. Conventional models trained on daytime datasets suffer from poor performance in tunnels, night driving and fog. This project addresses those challenges using a hybrid dataset and YOLOv3.
+
+## Objectives
+
+- Improve low-light object detection
+- Reduce false negatives
+- Maintain real-time inference
+- Detect pedestrians, vehicles and obstacles
+- Generate voice alerts
+
+## Features
+
+- Real-time image/video/webcam detection
+- YOLOv3 + Darknet-53
+- COCO + ExDark datasets
+- Brightness enhancement
+- Noise reduction
+- Tkinter GUI
+- gTTS voice alerts
+
+# 🏛️ System Architecture
+
+```text
+Input → Preprocessing → Augmentation → YOLOv3 → Object Detection → Voice Alert
+```
+
+Image:
+
+```html
 <p align="center">
-  <img src="images/banner.png" width="900">
+<img src="arch%20diagram.jpeg" width="900">
 </p>
-
-## 📌 Overview
-
-Low-light environments such as nighttime roads, tunnels, fog, and poorly illuminated streets significantly reduce the performance of conventional object detection systems used in autonomous vehicles.
-
-This project presents an intelligent **Low-Light Object Detection System** using **YOLOv3** trained with the **COCO** and **ExDark** datasets. The system performs real-time detection of pedestrians, vehicles, traffic signs, and other road objects while providing **voice alerts** to improve driver awareness.
-
-The project focuses on improving detection accuracy under challenging lighting conditions without sacrificing real-time performance.
-
----
-
-# 🎯 Objectives
-
-- Detect objects accurately in low-light environments.
-- Improve autonomous vehicle perception during nighttime.
-- Reduce false-negative detections.
-- Maintain real-time inference speed.
-- Provide audio alerts whenever an object is detected.
-- Improve road safety using computer vision and deep learning.
-
----
-
-# 🚗 Problem Statement
-
-Modern object detection systems perform well under daylight conditions but struggle in:
-
-- Night driving
-- Tunnels
-- Fog
-- Rain
-- Poor street lighting
-
-These conditions reduce image quality due to:
-
-- Low brightness
-- Noise
-- Blur
-- Poor contrast
-
-This causes missed detections of important objects such as pedestrians and vehicles, increasing accident risks.
-
----
-
-# 💡 Proposed Solution
-
-The proposed system combines
-
-- YOLOv3 Object Detection
-- ExDark Dataset
-- COCO Dataset
-- Low-light preprocessing
-- Voice Alert System
-
-to create an efficient real-time object detection framework capable of detecting objects even in challenging lighting conditions.
-
----
-
-# ✨ Features
-
-✅ Real-time object detection
-
-✅ Low-light image detection
-
-✅ Webcam detection
-
-✅ Video file detection
-
-✅ Image detection
-
-✅ Voice alert using Google Text-to-Speech
-
-✅ Bounding boxes with confidence score
-
-✅ GUI built using Tkinter
-
-✅ COCO + ExDark dataset support
-
-✅ Fast YOLOv3 inference
-
----
-
-# 🏗 System Architecture
-
 ```
-             Input Image / Video
-                      │
-                      ▼
-        Image Preprocessing
- (Brightness Enhancement, Noise Reduction)
-
-                      │
-                      ▼
-          YOLOv3 Object Detector
-
-                      │
-        ┌─────────────┴──────────────┐
-        ▼                            ▼
-
- Bounding Boxes             Detected Labels
-
-        ▼                            ▼
-    Display Output           Voice Alert (gTTS)
-
-```
-
----
-
-# 📂 Project Structure
-
-```
-ObjectDetection/
-
-│
-
-├── comparison/
-
-├── datasets/
-
-├── model/
-
-│ ├── yolov3.cfg
-
-│ ├── yolov3.weights
-
-│ ├── yolov3-labels
-
-│
-
-├── play/
-
-├── Main.py
-
-├── ObjectDetection.py
-
-├── comp.py
-
-├── cam_test.py
-
-├── compmatrix.py
-
-├── ft.py
-
-├── ssmatrix.py
-
-├── requirements.txt
-
-├── coco.names
-
-├── run.bat
-
-└── README.md
-
-```
-
----
-
-# ⚙️ Technologies Used
-
-| Technology | Purpose |
-|------------|----------|
-| Python | Programming Language |
-| OpenCV | Image Processing |
-| YOLOv3 | Object Detection |
-| NumPy | Numerical Computing |
-| Tkinter | GUI |
-| Google Text-to-Speech | Voice Alert |
-| Playsound | Audio Playback |
-
----
-
-# 📚 Datasets
-
-## COCO Dataset
-
-- Large-scale object detection dataset
-- General object categories
-- Used for base object recognition
-
----
-
-## ExDark Dataset
-
-Specialized dataset containing images captured in:
-
-- Night
-- Dim light
-- Indoor darkness
-- Street lighting
-- Low illumination
-
-Used to improve low-light detection accuracy.
-
----
-
-# 🧠 Model
-
-YOLOv3
-
-Backbone:
-
-Darknet-53
-
-Advantages
-
-- Fast
-- Accurate
-- Real-time
-- Lightweight
-- Suitable for autonomous vehicles
-
----
 
 # 🔄 Workflow
 
-```
-Start
-
-↓
-
-Load YOLOv3 Model
-
-↓
-
-Load Labels
-
-↓
-
-Select Image / Video / Webcam
-
-↓
-
-Image Preprocessing
-
-↓
-
-YOLOv3 Detection
-
-↓
-
-Draw Bounding Boxes
-
-↓
-
-Display Result
-
-↓
-
-Generate Voice Alert
-
-↓
-
-End
-
+```text
+Capture → Enhance → Detect → Draw Bounding Boxes → Display → Speak
 ```
 
----
-
-# 🖥 GUI
-
-The application provides a simple Tkinter interface with buttons to:
-
-- Load YOLO Model
-- Detect using Webcam
-- Detect from Image
-- Detect from Video
-- Exit Application
-
----
-
-# 🔊 Voice Alert System
-
-Whenever an object is detected, the system announces:
-
-```
-Detected Objects:
-
-Car
-
-Person
-
-Traffic Light
-
-Bicycle
-
+```html
+<p align="center">
+<img src="systemworkflow.jpeg" width="900">
+</p>
 ```
 
-using Google Text-to-Speech (gTTS).
+# 🛠 Tech Stack
 
----
+| Category | Tools |
+|---|---|
+| Language | Python |
+| Vision | OpenCV |
+| Deep Learning | YOLOv3, TensorFlow, Keras |
+| GUI | Tkinter |
+| Voice | gTTS, Playsound |
+| Numerical | NumPy |
+
+# 📂 Project Structure
+
+```text
+Low-Light-Object-Detection/
+├── model/
+├── datasets/
+├── comparison/
+├── play/
+├── Main.py
+├── ObjectDetection.py
+├── requirements.txt
+├── README.md
+├── arch diagram.jpeg
+├── systemworkflow.jpeg
+├── po-pso&sdg mapping.jpeg
+└── sdg mapping.jpeg
+```
+
+# ⚙️ Installation
+
+```bash
+git clone https://github.com/YOUR_USERNAME/Low-Light-Object-Detection.git
+cd Low-Light-Object-Detection
+pip install -r requirements.txt
+python Main.py
+```
+
+# 📚 Datasets
+
+## COCO
+General object detection dataset.
+
+## ExDark
+Low-light dataset containing more than 7,000 real dark images across multiple illumination conditions.
+
+# 🧠 Model
+
+YOLOv3 uses the Darknet-53 backbone and performs one-stage object detection with high speed and good accuracy, making it suitable for real-time autonomous driving.
 
 # 📈 Performance
 
 | Metric | Value |
-|---------|--------|
-| Model | YOLOv3 |
-| Dataset | COCO + ExDark |
-| mAP | **0.68** |
-| Processing | Real-time |
-| FPS | Approximately **20–25 FPS** (depending on hardware) |
+|---|---:|
+| mAP | 0.68 |
+| FPS | 20–25 (hardware dependent) |
 
----
+# 📸 Results
 
-# 💻 Installation
+Add screenshots for:
+- Low-light detection
+- Normal detection
+- Webcam output
+- GUI
 
-## Clone Repository
+# 🎯 PO–PSO Mapping
 
-```bash
-git clone https://github.com/yourusername/Low-Light-Object-Detection.git
+```html
+<p align="center">
+<img src="po-pso%26sdg%20mapping.jpeg" width="850">
+</p>
 ```
 
----
+# 🌍 SDG Mapping
 
-## Go to Project
-
-```bash
-cd Low-Light-Object-Detection
+```html
+<p align="center">
+<img src="sdg%20mapping.jpeg" width="700">
+</p>
 ```
 
----
+# 🚀 Future Scope
 
-## Install Requirements
+- YOLOv8
+- Vision Transformers
+- LiDAR/Radar fusion
+- Edge AI deployment
+- Mobile app
+- Cloud analytics
 
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## Run
-
-```bash
-python Main.py
-```
-
----
-
-# 📦 Requirements
-
-- Python 3.x
-- OpenCV
-- NumPy
-- TensorFlow
-- Keras
-- gTTS
-- Playsound
-
----
-
-# 📷 Sample Results
-
-## Normal Light
-
-(Add Screenshot)
-
----
-
-## Low-Light Detection
-
-(Add Screenshot)
-
----
-
-## Webcam Detection
-
-(Add Screenshot)
-
----
-
-## Voice Alert
-
-(Add Screenshot)
-
----
-
-# 📊 Advantages
-
-- High detection accuracy
-- Real-time performance
-- Works under poor lighting
-- User-friendly GUI
-- Audio notification
-- Easy deployment
-- Suitable for intelligent transportation
-
----
-
-# 🚧 Limitations
-
-- Uses only camera input
-- Performance decreases in complete darkness
-- Requires YOLOv3 weights
-- Limited by available GPU/CPU resources
-
----
-
-# 🔮 Future Scope
-
-- Upgrade to YOLOv8
-- Transformer-based object detection
-- Edge AI deployment (Jetson Nano, Raspberry Pi)
-- Sensor fusion with LiDAR and Radar
-- Multi-camera support
-- Driver fatigue monitoring
-- Traffic sign recognition
-- Lane detection
-- Cloud deployment
-- Mobile application
-
----
-
-# 📖 Research Publication
-
-This project has been prepared as an IEEE conference paper titled:
+# 📄 Research Publication
 
 **Enhancing Low-Light Object Detection in Autonomous Vehicles Using YOLOv3 and ExDark Dataset**
 
----
+# 👨‍💻 Author
 
-# 👨‍💻 Authors
+**Pallerla Sohan**  
+B.E. Information Technology  
+Vasavi College of Engineering  
+Hyderabad, India
 
-**Pallerla Sohan**
+GitHub: https://github.com/sohanpallerla
 
-B.E Information Technology
-
-Hyderabad, Telangana, India
-
-GitHub:
-
-https://github.com/sohanpallerla
-
-LinkedIn:
-
-https://linkedin.com/in/pallerla-sohan-ba79a8246
-
----
+LinkedIn: https://www.linkedin.com/in/pallerla-sohan-ba79a8246
 
 # 🙏 Acknowledgements
 
 - Vasavi College of Engineering
 - Department of Information Technology
+- Project Guide: Mr. G. Rajashekhar
 - COCO Dataset
 - ExDark Dataset
 - OpenCV
 - YOLOv3
 
----
-
-# ⭐ If you found this project useful
-
-Please consider giving this repository a ⭐ on GitHub.
-
----
-
 # 📜 License
 
-This project is developed for educational and research purposes.
+MIT License (recommended for GitHub).
 
-MIT License.
+---
+⭐ If you found this project useful, consider starring the repository.
